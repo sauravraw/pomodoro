@@ -70,14 +70,6 @@ function startTimer() {
 					switchMode("pomodoro");
 			}
 
-			if (Notification.permission === "granted") {
-				const text =
-					timer.mode === "pomodoro"
-						? "Break Time is Over"
-						: "Have a short break";
-				new Notification(text);
-			}
-
 			document.querySelector(`[data-sound="${timer.mode}"]`).play();
 
 			startTimer();
@@ -133,20 +125,5 @@ function handleMode(event) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-	if ("Notification" in window) {
-		if (
-			Notification.permission !== "granted" &&
-			Notification.permission !== "denied"
-		) {
-			Notification.requestPermission().then(function (permission) {
-				if (permission === "granted") {
-					new Notification(
-						"Awesome! You will be notified at the start of each session"
-					);
-				}
-			});
-		}
-	}
-
 	switchMode("pomodoro");
 });
