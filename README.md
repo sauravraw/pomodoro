@@ -1,8 +1,5 @@
 # pomodoro
 
-# live Link
-
-
 # Live Demo
 
 https://sauravraw.github.io/pomodoro/
